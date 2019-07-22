@@ -38,10 +38,10 @@ public class HomeScreen extends AppCompatActivity {
 
          signout.setOnClickListener(new View.OnClickListener() {
              @Override
-             public void onClick(View v) {
+             public void onClick(View v) { //sign out button
                  FirebaseAuth.getInstance().signOut();
                  Intent isignout = new Intent(HomeScreen.this,UserLogin.class);
-                    isignout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    isignout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  //clear the user
                     isignout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                  startActivity(isignout);
              }

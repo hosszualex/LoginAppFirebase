@@ -80,7 +80,7 @@ public class UserLogin extends AppCompatActivity {
 
                 mAuth.signInWithEmailAndPassword(email.getText().toString(),pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+                    public void onComplete(@NonNull Task<AuthResult> task) { //login button
                         if (task.isSuccessful()) {
 
                             if(keepSigned.isChecked()){
@@ -117,7 +117,7 @@ public class UserLogin extends AppCompatActivity {
             Boolean b = sp.getBoolean("prefs_check", false);
             keepSigned.setChecked(b);
         }
-        if(firebaseAuth.getCurrentUser() != null && sp.contains("prefs_check")){
+        if(firebaseAuth.getCurrentUser() != null && sp.contains("prefs_check")){ //keep me signed in
 
             loginIntent.putExtra("KEY",firebaseAuth.getCurrentUser().getEmail()); //send from firebase, because if we send text, we do not know what to send
             startActivity(loginIntent);
